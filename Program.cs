@@ -232,20 +232,33 @@ namespace ex_10
     {
         static void Main(string[] args)
         {
-            BinaryTree tree = new BinaryTree();
-            tree.Add(2);
-            tree.Add(4);
-            tree.Add(1);
-            tree.Add(3);
-            tree.Add(8);
-            tree.Add(2);
-            tree.Add(3);
-            tree.Add(3);
-            tree.Add(7);
-            BinaryTree.Show(tree);
-            tree.Remove(4);
-            BinaryTree.Show(tree);
-            Console.ReadKey();
+            try
+            {
+                BinaryTree tree = new BinaryTree();
+                tree.Add(2);
+                tree.Add(4);
+                tree.Add(1);
+                tree.Add(3);
+                tree.Add(8);
+                tree.Add(2);
+                tree.Add(3);
+                tree.Add(3);
+                tree.Add(7);
+                Console.WriteLine("ДЕРЕВО");
+                Console.WriteLine("--------------------------------");
+                BinaryTree.Show(tree);
+                Console.WriteLine("Введите значение удаляемого узла");
+                int delElement = int.Parse(Console.ReadLine());
+                tree.Remove(delElement);
+                Console.WriteLine("ДЕРЕВО");
+                Console.WriteLine("--------------------------------");
+                BinaryTree.Show(tree);
+                Console.ReadKey();
+            }
+            catch (System.FormatException)
+            {
+                Console.WriteLine("Вы ввели не число. Завершение работы программы");
+            }
         }
     }
 }
